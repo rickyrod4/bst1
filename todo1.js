@@ -3,8 +3,10 @@ function BTNode(value) {
         this.left = null;
         this.right = null;
     }
-    function BST() {
-        this.root = null;
+    class BST() {
+        constructor(){
+                this.root = null;
+        }
         // add methods here...
 
 
@@ -72,13 +74,32 @@ function BTNode(value) {
     //BST: Is Empty
     //Create an isEmpty() method to return whether the BST is empty (whether it contains no values).
     isEmpty(){
-        if(this.root === null){
-            return true;
-        }
-        else{
-            return false;
-        }
+        return this.root === null;
     }
+
+    min(){
+        if(this.isEmpty()){
+            return null;
+        }
+        var node = this.root;
+        while(node.left!== null){
+            node = node.left;
+        }
+        return node.value
+    }
+    
+    max(){
+        if(this.isEmpty()){
+            return null;
+        }
+        var node = this.root;
+        while(node.right !== null){
+            node = node.right;
+        }
+        return node.value
+    }
+    
+    
     
     }//end of BST()
     
